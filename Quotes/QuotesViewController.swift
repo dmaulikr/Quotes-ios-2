@@ -60,7 +60,8 @@ class QuotesViewController: UITableViewController {
         return true
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete{
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
             categoriesQuotes[activePlace].arrayQuotes.remove(at: indexPath.row)
             let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: categoriesQuotes)
             userDefaults.set(encodedData, forKey: "CategoriesQUOTES")

@@ -37,13 +37,16 @@ class CategoriesViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let tempDecoded  = userDefaults.object(forKey: "CategoriesQUOTES") as? Data{
+        if let tempDecoded  = userDefaults.object(forKey: "CategoriesQUOTES") as? Data
+        {
             let decoded = tempDecoded
-            if let decodedCategoriesQuotes = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [Categorie]{
+            if let decodedCategoriesQuotes = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [Categorie]
+            {
                 categoriesQuotes = decodedCategoriesQuotes
             }
         }
-        if categoriesQuotes.count == 0{
+        if categoriesQuotes.count == 0
+        {
             var  tempArrayQuotes = [[String: String]]()
             tempArrayQuotes.append(["quote":"Love is the one thing were capable of perceiving that transcends dimensions of time and space.","author": "Brand"])
         
@@ -87,7 +90,8 @@ class CategoriesViewController: UITableViewController {
         return true
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete{
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
             categoriesQuotes.remove(at: indexPath.row)
             let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: categoriesQuotes)
             userDefaults.set(encodedData, forKey: "CategoriesQUOTES")

@@ -18,7 +18,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addCategorie(_ sender: Any) {
-        if textCategorie.text != ""{
+        if textCategorie.text != ""
+        {
             let  tempArrayQuotes = [[String: String]]()
             let tempCategorieQuote = Categorie(categorieName: textCategorie.text!, arrayQuotes: tempArrayQuotes)
             categoriesQuotes.append(tempCategorieQuote)
@@ -27,7 +28,8 @@ class ViewController: UIViewController {
             userDefaults.synchronize()
             textCategorie.text=""
         }
-        else{
+        else
+        {
             let alert = UIAlertController(title: "Alert", message: "You can't leave empty textfields", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)

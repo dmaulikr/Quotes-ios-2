@@ -20,7 +20,8 @@ class AddQuoteViewController: ViewController {
     }
 
     @IBAction func addQuote(_ sender: Any) {
-        if quoteTextField.text != "" && authorTextField.text != ""{
+        if quoteTextField.text != "" && authorTextField.text != ""
+        {
             let  tempArrayQuotes: [String: String] = ["quote":quoteTextField.text!,"author": authorTextField.text!]
             categoriesQuotes[activePlace].arrayQuotes.append(tempArrayQuotes)
             let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: categoriesQuotes)
@@ -29,7 +30,8 @@ class AddQuoteViewController: ViewController {
             quoteTextField.text=""
             authorTextField.text=""
         }
-        else{
+        else
+        {
             let alert = UIAlertController(title: "Alert", message: "You can't leave empty textfields", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
